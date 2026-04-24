@@ -1,0 +1,139 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #09090b;
+  --card: #18181b;
+  --panel: #27272a;
+  --border: #52525b;
+  --text: #f4f4f5;
+  --muted: #d4d4d8;
+  --input: #27272a;
+  --chip: #3f3f46;
+  --accent: #059669;
+  --accent-2: #10b981;
+  --danger: #dc2626;
+  --shadow: rgba(0,0,0,.35);
+}
+body.light {
+  --bg: #f4f4f5;
+  --card: #ffffff;
+  --panel: #fafafa;
+  --border: #d4d4d8;
+  --text: #111111;
+  --muted: #52525b;
+  --input: #ffffff;
+  --chip: #e4e4e7;
+  --accent: #059669;
+  --accent-2: #10b981;
+  --danger: #dc2626;
+  --shadow: rgba(0,0,0,.08);
+}
+html, body {
+  margin: 0; padding: 0; background: var(--bg); color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+body { display: flex; justify-content: center; min-height: 100vh; }
+#app {
+  width: 100%; max-width: 430px; padding: 14px 12px 32px; min-height: 100vh;
+}
+.top-card, .progress-card, .info-card, .controls-card, .save-card, .stat-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+  box-shadow: 0 12px 30px var(--shadow);
+}
+.top-card, .progress-card, .info-card, .controls-card, .save-card { padding: 16px; }
+.top-card { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+h1 { margin:0; font-size: 28px; line-height:1.1; }
+.sub { margin:4px 0 0; color: var(--muted); font-size:14px; }
+.icon-btn, .tab-btn, .secondary-btn, .danger-btn, .catch-btn, .small-btn {
+  border-radius: 16px; border: 1px solid var(--border); cursor: pointer; font: inherit;
+}
+.icon-btn {
+  background: var(--panel); color: var(--text); min-width: 44px; min-height: 44px;
+}
+.summary-grid {
+  margin-top: 12px; display:grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.stat-card { padding: 14px; }
+.label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.value { margin-top: 4px; font-size: 30px; font-weight: 700; }
+body.light .value { color: #000; }
+body:not(.light) .value { color: #fff; }
+.progress-card, .info-card, .controls-card, .tab-row, .tab-panel { margin-top: 12px; }
+.progress-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 12px; }
+.badge {
+  display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border);
+  background: var(--panel); color: var(--text); border-radius: 999px; padding: 6px 10px; font-size: 12px;
+}
+.progress-track {
+  height: 14px; background: var(--panel); border: 1px solid var(--border); border-radius: 999px; overflow: hidden;
+}
+.progress-fill { height:100%; width:0%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.info-line { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.hidden { display:none !important; }
+label { display:block; }
+label > span { display:block; font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+input[type="text"], select, textarea {
+  width: 100%; min-height: 48px; border-radius: 16px; border: 1px solid var(--border);
+  background: var(--input); color: var(--text); padding: 12px 14px; font: inherit;
+}
+.two-col { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.switch-row {
+  display:flex; justify-content:space-between; align-items:center; padding: 14px;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 18px; margin-top: 12px;
+}
+.switch-row span { margin:0; }
+input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); }
+.tab-row {
+  display:grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.tab-btn {
+  min-height: 48px; background: var(--panel); color: var(--text);
+}
+.tab-btn.active {
+  background: var(--accent); color: #fff; border-color: #34d399;
+}
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+.helper-text { color: var(--muted); font-size: 14px; padding: 12px 4px; }
+.list, .games-list { display:flex; flex-direction:column; gap: 12px; }
+.mon-card, .game-row {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 22px; padding: 12px;
+}
+.mon-head { display:flex; justify-content:space-between; gap: 12px; align-items:flex-start; }
+.mon-main { display:flex; gap: 12px; min-width:0; }
+.mon-main img { width: 56px; height: 56px; border-radius: 14px; border:1px solid var(--border); background: rgba(255,255,255,.08); }
+.mon-name { font-weight:700; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chips { display:flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.chip {
+  border-radius: 999px; padding: 6px 10px; font-size: 12px; border:1px solid var(--border);
+  background: var(--chip); color: var(--text);
+}
+.chip.caught { background: rgba(16,185,129,.22); color: #d1fae5; border-color: rgba(52,211,153,.45); }
+body.light .chip.caught { color: #065f46; }
+.catch-btn {
+  padding: 10px 12px; min-width: 110px; background: var(--panel); color: var(--text);
+}
+.catch-btn.active {
+  background: var(--accent); border-color: #34d399; color: #fff;
+}
+.mon-actions { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.small-btn {
+  min-height: 42px; background: var(--card); color: var(--text);
+}
+.small-btn.active { background: var(--accent); border-color: #34d399; color: #fff; }
+.notes {
+  width: 100%; margin-top: 12px; min-height: 44px;
+}
+.game-row-head { display:flex; justify-content:space-between; gap: 10px; align-items:center; }
+.row-title { font-weight: 700; font-size: 14px; }
+.row-sub { color: var(--muted); font-size: 12px; margin-top: 8px; display:flex; gap: 12px; flex-wrap:wrap; }
+.save-card { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.secondary-btn, .danger-btn, .file-label {
+  display:flex; align-items:center; justify-content:center; min-height: 46px; background: var(--panel); color: var(--text); text-decoration:none;
+}
+.danger-btn { grid-column: 1 / -1; background: var(--danger); color: #fff; border-color: #f87171; }
+.file-label { user-select:none; }
+@media (max-width: 380px) {
+  .two-col { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .mon-head { flex-direction: column; }
+}

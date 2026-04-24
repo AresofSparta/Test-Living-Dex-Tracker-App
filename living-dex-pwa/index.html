@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Living Dex" />
+  <title>Living Dex Tracker</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./icon-192.png" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="top-card">
+      <div>
+        <h1>Living Dex Tracker</h1>
+        <p class="sub">Installable PWA for your Pixel 7a</p>
+      </div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☼</button>
+    </header>
+
+    <section class="summary-grid">
+      <div class="stat-card">
+        <div class="label">Overall Living Dex</div>
+        <div class="value" id="overallCount">0/1025</div>
+      </div>
+      <div class="stat-card">
+        <div class="label" id="gameLabel">Red/Blue</div>
+        <div class="value" id="gameCount">0/151</div>
+      </div>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-meta">
+        <span id="completionBadge" class="badge">0% complete</span>
+        <span id="poolBadge" class="badge">151 in pool</span>
+      </div>
+      <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+    </section>
+
+    <section class="info-card">
+      <div class="info-line">
+        <strong>PWA mode:</strong> install from Chrome’s menu. Later-game pools try exact regional dex lists online and fall back gracefully.
+      </div>
+      <button id="installBtn" class="secondary-btn hidden">Install app</button>
+    </section>
+
+    <section class="controls-card">
+      <label>
+        <span>Choose game</span>
+        <select id="gameSelect"></select>
+      </label>
+
+      <label>
+        <span>Search</span>
+        <input id="searchInput" type="text" placeholder="Search by name or Pokédex number" />
+      </label>
+
+      <div class="two-col">
+        <label>
+          <span>Status</span>
+          <select id="statusSelect">
+            <option value="all">All</option>
+            <option value="caught">Caught</option>
+            <option value="missing">Missing</option>
+            <option value="shiny">Shiny</option>
+            <option value="marked">Marked</option>
+            <option value="unavailable">Unavailable</option>
+          </select>
+        </label>
+
+        <label class="switch-row">
+          <span>Caught only</span>
+          <input id="caughtOnly" type="checkbox" />
+        </label>
+      </div>
+
+      <label class="switch-row">
+        <span>Show unavailable Pokémon</span>
+        <input id="showUnavailable" type="checkbox" />
+      </label>
+    </section>
+
+    <section class="tab-row">
+      <button class="tab-btn active" data-tab="tracker">Tracker</button>
+      <button class="tab-btn" data-tab="games">Games</button>
+    </section>
+
+    <section id="trackerTab" class="tab-panel active">
+      <div id="dexStatus" class="helper-text">Loading National Dex…</div>
+      <div id="pokemonList" class="list"></div>
+    </section>
+
+    <section id="gamesTab" class="tab-panel">
+      <div id="gamesOverview" class="games-list"></div>
+
+      <div class="save-card">
+        <button id="exportBtn" class="secondary-btn">Export</button>
+        <label class="secondary-btn file-label">
+          Import
+          <input id="importInput" type="file" accept="application/json" hidden />
+        </label>
+        <button id="resetBtn" class="danger-btn">Reset current game</button>
+      </div>
+    </section>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
