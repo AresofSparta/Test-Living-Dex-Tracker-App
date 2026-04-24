@@ -2,17 +2,11 @@
 
 This package is a Progressive Web App version of your Living Dex tracker.
 
-## How to use on your Pixel 7a
+## How to use on your Phone
 1. Unzip this folder somewhere you can host static files.
 2. Serve it with any static web server over HTTPS.
 3. Open it in Chrome on your phone.
-4. Tap Chrome's menu and choose **Add to Home screen**.
-
-## Simple hosting options
-- GitHub Pages
-- Netlify
-- Vercel
-- Any local static server for testing
+4. Tap Chrome's menu and choose **Add to Home screen*
 
 ## Notes
 - The app stores your tracker data in localStorage on the device/browser.
